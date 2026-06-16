@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Controle de Depoimentos — Evento Siemens</title>
+<style>
+  :root{
+    --ink:#0f1f2e; --ink2:#33485c; --muted:#6b7e8f;
+    --line:#e3e9ef; --bg:#f5f7fa; --card:#ffffff;
+    --teal:#0e8c8a; --teal-d:#0a6664;
+    --amber:#d98a00; --green:#1f9d57; --red:#c4453d;
+    --chip-bg:#eef3f6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.45;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+
+  header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;
+    padding:26px 28px;border-radius:16px;color:#fff;
+    background:linear-gradient(135deg,var(--teal-d),var(--teal));box-shadow:0 8px 26px rgba(14,140,138,.22)}
+  header.top h1{margin:0;font-size:24px;letter-spacing:.2px}
+  header.top .sub{margin-top:6px;font-size:14px;opacity:.92}
+  header.top .brand{font-size:12px;text-transform:uppercase;letter-spacing:2px;opacity:.85;margin-bottom:8px}
+  header.top .meta{font-size:12.5px;opacity:.9;text-align:right}
+  header.top .hleft{display:flex;align-items:center;gap:18px}
+  .logochip{background:#fff;border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.14);min-width:118px;min-height:54px}
+  .logochip .logo{height:30px;width:auto;display:block}
+  .logochip .logo-fallback{display:none;font-weight:800;letter-spacing:1px;color:#009999;font-size:22px;
+    font-family:Arial,Helvetica,sans-serif}
+  .drivebtn-top{display:inline-block;margin-top:10px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);
+    color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:8px}
+  .drivebtn-top:hover{background:rgba(255,255,255,.27)}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px}
+  .card .n{font-size:30px;font-weight:700;line-height:1}
+  .card .l{font-size:12.5px;color:var(--muted);margin-top:6px}
+  .card.total .n{color:var(--ink)}
+  .card.grav .n{color:var(--red)}
+  .card.drive .n{color:var(--amber)}
+  .card.avis .n{color:var(--green)}
+
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 18px}
+  .toolbar input{flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;font-size:14px;background:#fff}
+  .toolbar select{padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px;background:#fff;color:var(--ink2)}
+
+  .day{margin-bottom:26px}
+  .day h2{display:flex;align-items:center;gap:10px;font-size:16px;margin:0 0 12px;color:var(--ink)}
+  .day h2 .dot{width:9px;height:9px;border-radius:50%;background:var(--teal)}
+  .day h2 .count{font-size:12.5px;color:var(--muted);font-weight:500}
+  .day .drivebtn{margin-left:auto;font-size:12.5px}
+
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+    border-radius:13px;overflow:hidden}
+  th{font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;
+    padding:11px 16px;background:#fafbfc;border-bottom:1px solid var(--line);font-weight:600}
+  td{padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:#fbfdfd}
+  td.name{font-weight:600;color:var(--ink)}
+  .role{font-size:12px;color:var(--muted)}
+
+  .tipo{display:inline-block;font-size:12px;padding:3px 9px;border-radius:20px;background:var(--chip-bg);color:var(--ink2)}
+
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:20px}
+  .badge::before{content:"";width:7px;height:7px;border-radius:50%}
+  .b-grav{background:#fcebea;color:var(--red)}            .b-grav::before{background:var(--red)}
+  .b-drive{background:#fdf3e0;color:var(--amber)}         .b-drive::before{background:var(--amber)}
+  .b-avis{background:#e6f5ec;color:var(--green)}          .b-avis::before{background:var(--green)}
+
+  a.link{display:inline-flex;align-items:center;gap:5px;color:var(--teal-d);text-decoration:none;font-weight:600;font-size:13px}
+  a.link:hover{text-decoration:underline}
+  .nolink{color:#b7c2cc;font-size:13px}
+  .obs{color:var(--ink2);font-size:13px}
+
+  .empty{padding:18px;color:var(--muted);font-size:13.5px;background:var(--card);border:1px dashed var(--line);border-radius:13px}
+
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:26px;padding:16px 18px;background:var(--card);
+    border:1px solid var(--line);border-radius:13px;font-size:13px;color:var(--ink2)}
+  .legend b{color:var(--ink)}
+  footer{margin-top:24px;font-size:12px;color:var(--muted);text-align:center}
+
+  @media(max-width:720px){
+    .cards{grid-template-columns:repeat(2,1fr)}
+    header.top .meta{text-align:left}
+    th.hide,td.hide{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="hleft">
+      <div class="logochip">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg" alt="Siemens"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+        <span class="logo-fallback">SIEMENS</span>
+      </div>
+      <div>
+        <div class="brand">Entrenova · Produção</div>
+        <h1>Controle de Depoimentos</h1>
+        <div class="sub">Fispal Tecnologia 2026 · Cliente Siemens — gravações, disponibilidade no Drive e aviso aos participantes</div>
+      </div>
+    </div>
+    <div class="meta">
+      4 dias · 16 a 19 de junho de 2026<br>
+      <span id="updated"></span>
+      <a class="drivebtn-top" href="https://drive.google.com/drive/folders/1PL-kKBP-sAzmVu3oFlzM0JaocJBOM0cV" target="_blank">📁 Pasta BRUTO no Drive</a>
+    </div>
+  </header>
+
+  <div class="cards">
+    <div class="card total"><div class="n" id="c-total">0</div><div class="l">Pessoas gravadas</div></div>
+    <div class="card grav"><div class="n" id="c-grav">0</div><div class="l">A subir no Drive</div></div>
+    <div class="card drive"><div class="n" id="c-drive">0</div><div class="l">No Drive (avisar)</div></div>
+    <div class="card avis"><div class="n" id="c-avis">0</div><div class="l">Avisados ✓</div></div>
+  </div>
+
+  <div class="toolbar">
+    <input id="search" type="text" placeholder="Buscar por nome…">
+    <select id="filter">
+      <option value="">Todos os status</option>
+      <option value="gravado">A subir no Drive</option>
+      <option value="drive">No Drive (avisar)</option>
+      <option value="avisado">Avisados</option>
+    </select>
+  </div>
+
+  <div id="days"></div>
+
+  <div class="legend">
+    <span><span class="badge b-grav">Gravado</span> &nbsp;gravamos, ainda <b>não subiu</b> no Drive</span>
+    <span><span class="badge b-drive">No Drive</span> &nbsp;disponível no Drive, <b>falta avisar</b> a pessoa</span>
+    <span><span class="badge b-avis">Avisado</span> &nbsp;pessoa <b>já foi avisada</b> ✓</span>
+  </div>
+
+  <footer>
+    Para atualizar: me diga o nome, o dia e o status (e o link do Drive, se tiver) que eu atualizo este arquivo.
+  </footer>
+</div>
+
+<script>
+/* =========================================================================
+   DADOS — é só esta lista que muda. Cada pessoa é um objeto.
+   dia:    1 | 2 | 3 | 4
+   tipo:   "Depoimento" | "Insert"
+   status: "gravado" | "drive" | "avisado"
+   drive:  link da pasta/vídeo no Google Drive (ou "" se ainda não tiver)
+   obs:    observação curta (opcional)
+   ========================================================================= */
+const PESSOAS = [
+  // ---- DIA 01 (16/06) — dados reais do Drive ----
+  { nome:"Daniel Cassimiro", role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1SOnRYMIOrQH8seyal1ZLE_0ihBR2nOyd", obs:"3 vídeos + áudio" },
+  { nome:"Diego Cadete",     role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1nur3qp0ULQ3-twydzXCZK4AzMsq1a0Hu", obs:"1 vídeo" },
+  { nome:"Renan",            role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1VCrA7BI5kr_N-yyo5bOqkmCM1KjhcZfg", obs:"1 vídeo" },
+  { nome:"Inserts do dia (23 vídeos)", role:"", dia:1, tipo:"Insert", status:"drive", drive:"https://drive.google.com/drive/folders/1ujweaII9zHC0X_7BBIPxLGNjmrmVrG-u", obs:"Material bruto" },
+];
+
+const DIAS = [
+  { n:1, label:"Dia 1 — Terça, 16/06", drive:"https://drive.google.com/drive/folders/16b5L1mZy05sWZcg75hP_IHAM2omu0Nfc" },
+  { n:2, label:"Dia 2 — Quarta, 17/06", drive:"" },
+  { n:3, label:"Dia 3 — Quinta, 18/06", drive:"" },
+  { n:4, label:"Dia 4 — Sexta, 19/06", drive:"" },
+];
+
+const STATUS = {
+  gravado:{cls:"b-grav", txt:"Gravado"},
+  drive:  {cls:"b-drive",txt:"No Drive"},
+  avisado:{cls:"b-avis", txt:"Avisado"},
+};
+
+function render(){
+  const q = document.getElementById("search").value.toLowerCase().trim();
+  const f = document.getElementById("filter").value;
+  const list = PESSOAS.filter(p =>
+    (!q || p.nome.toLowerCase().includes(q)) && (!f || p.status===f));
+
+  // contadores — apenas depoimentos (pessoas), não inserts
+  const deps = PESSOAS.filter(p=>p.tipo==="Depoimento");
+  document.getElementById("c-total").textContent = deps.length;
+  document.getElementById("c-grav").textContent  = deps.filter(p=>p.status==="gravado").length;
+  document.getElementById("c-drive").textContent = deps.filter(p=>p.status==="drive").length;
+  document.getElementById("c-avis").textContent  = deps.filter(p=>p.status==="avisado").length;
+
+  const root = document.getElementById("days");
+  root.innerHTML = "";
+  DIAS.forEach(d=>{
+    const ppl = list.filter(p=>p.dia===d.n);
+    const sec = document.createElement("div");
+    sec.className = "day";
+    const driveBtn = d.drive
+      ? `<a class="link drivebtn" href="${d.drive}" target="_blank">📁 Pasta do dia no Drive</a>` : "";
+    sec.innerHTML = `<h2><span class="dot"></span>${d.label}
+        <span class="count">(${ppl.length})</span>${driveBtn}</h2>`;
+    if(ppl.length===0){
+      sec.innerHTML += `<div class="empty">Nenhum registro ${q||f?"com esse filtro":"ainda"} neste dia.</div>`;
+    } else {
+      let rows = ppl.map(p=>{
+        const s = STATUS[p.status]||{cls:"",txt:p.status};
+        const link = p.drive
+          ? `<a class="link" href="${p.drive}" target="_blank">Abrir ↗</a>`
+          : `<span class="nolink">—</span>`;
+        const role = p.role?`<div class="role">${p.role}</div>`:"";
+        return `<tr>
+          <td class="name">${p.nome}${role}</td>
+          <td><span class="tipo">${p.tipo}</span></td>
+          <td><span class="badge ${s.cls}">${s.txt}</span></td>
+          <td>${link}</td>
+          <td class="obs hide">${p.obs||""}</td>
+        </tr>`;
+      }).join("");
+      sec.innerHTML += `<table>
+        <thead><tr><th>Nome</th><th>Tipo</th><th>Status</th><th>Link Drive</th><th class="hide">Obs.</th></tr></thead>
+        <tbody>${rows}</tbody></table>`;
+    }
+    root.appendChild(sec);
+  });
+}
+
+document.getElementById("updated").textContent =
+  "Atualizado em " + new Date().toLocaleDateString("pt-BR",{day:"2-digit",month:"long",year:"numeric"});
+document.getElementById("search").addEventListener("input", render);
+document.getElementById("filter").addEventListener("change", render);
+render();
+</script>
+</body>
+</html>
