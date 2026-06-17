@@ -34,12 +34,13 @@
     color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:8px}
   .drivebtn-top:hover{background:rgba(255,255,255,.27)}
 
-  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
+  .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:22px 0}
   .card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px}
   .card .n{font-size:30px;font-weight:700;line-height:1}
   .card .l{font-size:12.5px;color:var(--muted);margin-top:6px}
   .card.total .n{color:var(--ink)}
   .card.grav .n{color:var(--red)}
+  .card.edit .n{color:var(--violet)}
   .card.drive .n{color:var(--amber)}
   .card.avis .n{color:var(--green)}
 
@@ -117,6 +118,7 @@
   <div class="cards">
     <div class="card total"><div class="n" id="c-total">0</div><div class="l">Pessoas gravadas</div></div>
     <div class="card grav"><div class="n" id="c-grav">0</div><div class="l">A subir no Drive</div></div>
+    <div class="card edit"><div class="n" id="c-edit">0</div><div class="l">A editar</div></div>
     <div class="card drive"><div class="n" id="c-drive">0</div><div class="l">No Drive (avisar)</div></div>
     <div class="card avis"><div class="n" id="c-avis">0</div><div class="l">Avisados ✓</div></div>
   </div>
@@ -187,12 +189,13 @@ function render(){
   const list = PESSOAS.filter(p =>
     (!q || p.nome.toLowerCase().includes(q)) && (!f || p.status===f));
 
-  // contadores — apenas depoimentos (pessoas), não inserts
+  // contadores — "Pessoas gravadas" conta só depoimentos; os de status contam TODO o material
   const deps = PESSOAS.filter(p=>p.tipo==="Depoimento");
   document.getElementById("c-total").textContent = deps.length;
-  document.getElementById("c-grav").textContent  = deps.filter(p=>p.status==="gravado").length;
-  document.getElementById("c-drive").textContent = deps.filter(p=>p.status==="drive").length;
-  document.getElementById("c-avis").textContent  = deps.filter(p=>p.status==="avisado").length;
+  document.getElementById("c-grav").textContent  = PESSOAS.filter(p=>p.status==="gravado").length;
+  document.getElementById("c-edit").textContent  = PESSOAS.filter(p=>p.status==="editar").length;
+  document.getElementById("c-drive").textContent = PESSOAS.filter(p=>p.status==="drive").length;
+  document.getElementById("c-avis").textContent  = PESSOAS.filter(p=>p.status==="avisado").length;
 
   const root = document.getElementById("days");
   root.innerHTML = "";
