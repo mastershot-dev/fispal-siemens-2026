@@ -40,7 +40,7 @@ BRUTO/
 DIA 02/
 └── DEPOIMENTOS/
     ├── BIANCA CERVEIRA/        (depoimento + insert — completo)
-    ├── WILLIAM PEREIRA/        (multicam: CAM A, CAM B, INSERT — ainda subindo)
+    ├── WILLIAM PEREIRA/        (multicam: CAM A, CAM B, INSERT — completo)
     └── JULIO CUNHA/            (ainda subindo)
 ```
 
@@ -141,7 +141,7 @@ nova pessoa ou mudança de status:
 **DIA 02**
 - DIA 02: https://drive.google.com/drive/folders/1eOC8gfhdbX7d0UyHf--0UI8sNf7aRFQo
 - Depoimento — Bianca Cerveira (completo): https://drive.google.com/drive/folders/1kzFhEANUbgR4mq1U7aoTAaO5goroD_Nd
-- Depoimento — William Pereira (ainda subindo): https://drive.google.com/drive/folders/14XwRiXvRPsjNsg4l5SeWTAFS5a12X2Tl
+- Depoimento — William Pereira (completo): https://drive.google.com/drive/folders/14XwRiXvRPsjNsg4l5SeWTAFS5a12X2Tl
 - Depoimento — Julio Cunha (ainda subindo): https://drive.google.com/drive/folders/1Lug4cv4uRfJql83ehT0ojMMMqdnP1CXm
 
 ---
