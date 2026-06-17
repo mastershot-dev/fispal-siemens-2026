@@ -1,7 +1,7 @@
 # Controle de Depoimentos — Fispal Tecnologia 2026 (Cliente: Siemens)
 
 Relatório de entrega e instruções de publicação. Produzido por: Entrenova · Produção.
-Última atualização: 16/06/2026.
+Última atualização: 17/06/2026.
 
 ---
 
@@ -30,10 +30,12 @@ O material bruto está organizado assim na pasta **BRUTO** (Google Workspace), j
 BRUTO/
 └── DIA 01/
     ├── DEPOIMENTOS/
-    │   ├── DANIEL CASSIMIRO/   (3 vídeos + 1 áudio)
-    │   ├── DIEGO CADETE/        (1 vídeo)
+    │   ├── DANIEL CASSIMIRO/   (5 vídeos + 1 áudio)
+    │   ├── DIEGO CADETE/        (2 vídeos: bruto + edit)
+    │   ├── DANIEL MARQUES/      (1 vídeo)
     │   └── RENAN/               (1 vídeo)
-    └── INSERTS/                 (23 vídeos)
+    ├── INSERTS/                 (23 vídeos)
+    └── FOTOS/                   (2 fotos — Daniel Cassimiro)
 ```
 
 Os próximos dias (DIA 02 a DIA 04) seguirão o mesmo formato: cada dia com `DEPOIMENTOS`
@@ -123,5 +125,7 @@ nova pessoa ou mudança de status:
 - DIA 01: https://drive.google.com/drive/folders/16b5L1mZy05sWZcg75hP_IHAM2omu0Nfc
 - Depoimento — Daniel Cassimiro: https://drive.google.com/drive/folders/1SOnRYMIOrQH8seyal1ZLE_0ihBR2nOyd
 - Depoimento — Diego Cadete: https://drive.google.com/drive/folders/1nur3qp0ULQ3-twydzXCZK4AzMsq1a0Hu
+- Depoimento — Daniel Marques: https://drive.google.com/drive/folders/1LWZWGQKcPsp659qEvhSO2hvJUL3Cdqzp
 - Depoimento — Renan: https://drive.google.com/drive/folders/1VCrA7BI5kr_N-yyo5bOqkmCM1KjhcZfg
 - Inserts (23 vídeos): https://drive.google.com/drive/folders/1ujweaII9zHC0X_7BBIPxLGNjmrmVrG-u
+- Fotos (2 fotos — Daniel Cassimiro): https://drive.google.com/drive/folders/18OiTFG1WRp-m38AC59tKDaC2J4AIyNLn
