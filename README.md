@@ -36,9 +36,15 @@ BRUTO/
     │   └── RENAN/               (1 vídeo)
     ├── INSERTS/                 (23 vídeos)
     └── FOTOS/                   (2 fotos — Daniel Cassimiro)
+
+DIA 02/
+├── DEPOIMENTOS/
+│   ├── BIANCA/                 (depoimento + insert — completo)
+│   └── WILLIAM PEREIRA/        (multicam: CAM A, CAM B, INSERT — ainda subindo)
+└── INSERTS/                    (em organização)
 ```
 
-Os próximos dias (DIA 02 a DIA 04) seguirão o mesmo formato: cada dia com `DEPOIMENTOS`
+Os próximos dias (DIA 03 e DIA 04) seguirão o mesmo formato: cada dia com `DEPOIMENTOS`
 (uma subpasta por pessoa) e `INSERTS`.
 
 > **Acesso:** a pasta precisa estar compartilhada diretamente com a conta Google conectada
@@ -119,9 +125,11 @@ nova pessoa ou mudança de status:
 
 ---
 
-## 7. Referências (links do Drive — DIA 01)
+## 7. Referências (links do Drive)
 
 - Pasta BRUTO: https://drive.google.com/drive/folders/1PL-kKBP-sAzmVu3oFlzM0JaocJBOM0cV
+
+**DIA 01**
 - DIA 01: https://drive.google.com/drive/folders/16b5L1mZy05sWZcg75hP_IHAM2omu0Nfc
 - Depoimento — Daniel Cassimiro: https://drive.google.com/drive/folders/1SOnRYMIOrQH8seyal1ZLE_0ihBR2nOyd
 - Depoimento — Diego Cadete: https://drive.google.com/drive/folders/1nur3qp0ULQ3-twydzXCZK4AzMsq1a0Hu
@@ -129,6 +137,12 @@ nova pessoa ou mudança de status:
 - Depoimento — Renan Felipe do Valle: https://drive.google.com/drive/folders/1VCrA7BI5kr_N-yyo5bOqkmCM1KjhcZfg
 - Inserts (23 vídeos): https://drive.google.com/drive/folders/1ujweaII9zHC0X_7BBIPxLGNjmrmVrG-u
 - Fotos (2 fotos — Daniel Cassimiro): https://drive.google.com/drive/folders/18OiTFG1WRp-m38AC59tKDaC2J4AIyNLn
+
+**DIA 02**
+- DIA 02: https://drive.google.com/drive/folders/1eOC8gfhdbX7d0UyHf--0UI8sNf7aRFQo
+- Depoimento — Bianca (completo): https://drive.google.com/drive/folders/1kzFhEANUbgR4mq1U7aoTAaO5goroD_Nd
+- Depoimento — William Pereira (ainda subindo): https://drive.google.com/drive/folders/14XwRiXvRPsjNsg4l5SeWTAFS5a12X2Tl
+- Inserts (em organização): https://drive.google.com/drive/folders/1bKNtFJeTKhOJhQJFH1Z55WW6qpUq7Yh3
 
 ---
 
