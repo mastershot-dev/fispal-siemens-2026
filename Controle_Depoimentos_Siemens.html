@@ -9,7 +9,7 @@
     --ink:#0f1f2e; --ink2:#33485c; --muted:#6b7e8f;
     --line:#e3e9ef; --bg:#f5f7fa; --card:#ffffff;
     --teal:#0e8c8a; --teal-d:#0a6664;
-    --amber:#d98a00; --green:#1f9d57; --red:#c4453d;
+    --amber:#d98a00; --green:#1f9d57; --red:#c4453d; --violet:#6b4fd8;
     --chip-bg:#eef3f6;
   }
   *{box-sizing:border-box}
@@ -70,6 +70,7 @@
   .b-grav{background:#fcebea;color:var(--red)}            .b-grav::before{background:var(--red)}
   .b-drive{background:#fdf3e0;color:var(--amber)}         .b-drive::before{background:var(--amber)}
   .b-avis{background:#e6f5ec;color:var(--green)}          .b-avis::before{background:var(--green)}
+  .b-edit{background:#ece9fb;color:var(--violet)}         .b-edit::before{background:var(--violet)}
 
   a.link{display:inline-flex;align-items:center;gap:5px;color:var(--teal-d);text-decoration:none;font-weight:600;font-size:13px}
   a.link:hover{text-decoration:underline}
@@ -125,6 +126,7 @@
     <select id="filter">
       <option value="">Todos os status</option>
       <option value="gravado">A subir no Drive</option>
+      <option value="editar">A editar</option>
       <option value="drive">No Drive (avisar)</option>
       <option value="avisado">Avisados</option>
     </select>
@@ -136,6 +138,7 @@
     <span><span class="badge b-grav">Gravado</span> &nbsp;gravamos, ainda <b>não subiu</b> no Drive</span>
     <span><span class="badge b-drive">No Drive</span> &nbsp;disponível no Drive, <b>falta avisar</b> a pessoa</span>
     <span><span class="badge b-avis">Avisado</span> &nbsp;pessoa <b>já foi avisada</b> ✓</span>
+    <span><span class="badge b-edit">A editar</span> &nbsp;material gravado que <b>precisa de edição</b></span>
   </div>
 
   <footer>
@@ -147,8 +150,8 @@
 /* =========================================================================
    DADOS — é só esta lista que muda. Cada pessoa é um objeto.
    dia:    1 | 2 | 3 | 4
-   tipo:   "Depoimento" | "Insert"
-   status: "gravado" | "drive" | "avisado"
+   tipo:   "Depoimento" | "Vídeo" | "Insert" | "Foto"
+   status: "gravado" | "editar" | "drive" | "avisado"
    drive:  link da pasta/vídeo no Google Drive (ou "" se ainda não tiver)
    obs:    observação curta (opcional)
    ========================================================================= */
@@ -157,7 +160,9 @@ const PESSOAS = [
   { nome:"Daniel Cassimiro", role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1SOnRYMIOrQH8seyal1ZLE_0ihBR2nOyd", obs:"5 vídeos + áudio" },
   { nome:"Diego Cadete",     role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1nur3qp0ULQ3-twydzXCZK4AzMsq1a0Hu", obs:"2 vídeos (bruto + edit)" },
   { nome:"Daniel Marques",   role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1LWZWGQKcPsp659qEvhSO2hvJUL3Cdqzp", obs:"1 vídeo" },
-  { nome:"Renan",            role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1VCrA7BI5kr_N-yyo5bOqkmCM1KjhcZfg", obs:"1 vídeo" },
+  { nome:"Renan Felipe do Valle", role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1VCrA7BI5kr_N-yyo5bOqkmCM1KjhcZfg", obs:"1 vídeo" },
+  { nome:"Repórter por um dia", role:"Vídeo 01", dia:1, tipo:"Vídeo", status:"editar", drive:"", obs:'Entrada: usar a tomada com "EXPOSITORES" no topo · 2 finais gravados, escolher c/ editor' },
+  { nome:"Sistema VIC", role:"Cassimiro e Augusto", dia:1, tipo:"Vídeo", status:"gravado", drive:"", obs:"Sistema de verificação de qualidade (ex.: banana) · ainda não subiu no Drive" },
   { nome:"Inserts do dia (23 vídeos)", role:"", dia:1, tipo:"Insert", status:"drive", drive:"https://drive.google.com/drive/folders/1ujweaII9zHC0X_7BBIPxLGNjmrmVrG-u", obs:"Material bruto" },
   { nome:"Fotos do dia (2 fotos)", role:"", dia:1, tipo:"Foto", status:"drive", drive:"https://drive.google.com/drive/folders/18OiTFG1WRp-m38AC59tKDaC2J4AIyNLn", obs:"Daniel Cassimiro" },
 ];
@@ -171,6 +176,7 @@ const DIAS = [
 
 const STATUS = {
   gravado:{cls:"b-grav", txt:"Gravado"},
+  editar: {cls:"b-edit", txt:"A editar"},
   drive:  {cls:"b-drive",txt:"No Drive"},
   avisado:{cls:"b-avis", txt:"Avisado"},
 };

@@ -126,6 +126,18 @@ nova pessoa ou mudança de status:
 - Depoimento — Daniel Cassimiro: https://drive.google.com/drive/folders/1SOnRYMIOrQH8seyal1ZLE_0ihBR2nOyd
 - Depoimento — Diego Cadete: https://drive.google.com/drive/folders/1nur3qp0ULQ3-twydzXCZK4AzMsq1a0Hu
 - Depoimento — Daniel Marques: https://drive.google.com/drive/folders/1LWZWGQKcPsp659qEvhSO2hvJUL3Cdqzp
-- Depoimento — Renan: https://drive.google.com/drive/folders/1VCrA7BI5kr_N-yyo5bOqkmCM1KjhcZfg
+- Depoimento — Renan Felipe do Valle: https://drive.google.com/drive/folders/1VCrA7BI5kr_N-yyo5bOqkmCM1KjhcZfg
 - Inserts (23 vídeos): https://drive.google.com/drive/folders/1ujweaII9zHC0X_7BBIPxLGNjmrmVrG-u
 - Fotos (2 fotos — Daniel Cassimiro): https://drive.google.com/drive/folders/18OiTFG1WRp-m38AC59tKDaC2J4AIyNLn
+
+---
+
+## 8. Pendências do DIA 01 (encerrado)
+
+O DIA 01 foi concluído. Itens de produção em aberto, registrados no painel:
+
+- **Repórter por um dia (Vídeo 01)** — *a editar*. Notas de edição:
+  - Entrada do evento: usar a tomada em que aparece escrito **"EXPOSITORES"** no topo (essa é a que vale).
+  - Foram gravados **dois finais**; escolher junto com o editor qual ficou melhor.
+- **Sistema VIC** (Cassimiro e Augusto) — *a subir no Drive*. Vídeo do sistema de verificação
+  de qualidade (ex.: banana); material gravado, ainda não enviado.
