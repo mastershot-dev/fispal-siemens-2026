@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Controle de Depoimentos — Evento Siemens</title>
+<title>Controle de Registro Audiovisual — Evento Siemens</title>
 <style>
   :root{
     --ink:#0f1f2e; --ink2:#33485c; --muted:#6b7e8f;
@@ -34,15 +34,14 @@
     color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:8px}
   .drivebtn-top:hover{background:rgba(255,255,255,.27)}
 
-  .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:22px 0}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}
   .card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px}
   .card .n{font-size:30px;font-weight:700;line-height:1}
   .card .l{font-size:12.5px;color:var(--muted);margin-top:6px}
   .card.total .n{color:var(--ink)}
   .card.grav .n{color:var(--red)}
   .card.edit .n{color:var(--violet)}
-  .card.drive .n{color:var(--amber)}
-  .card.avis .n{color:var(--green)}
+  .card.drive .n{color:var(--green)}
 
   .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 18px}
   .toolbar input{flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;font-size:14px;background:#fff}
@@ -69,8 +68,7 @@
   .badge{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:20px}
   .badge::before{content:"";width:7px;height:7px;border-radius:50%}
   .b-grav{background:#fcebea;color:var(--red)}            .b-grav::before{background:var(--red)}
-  .b-drive{background:#fdf3e0;color:var(--amber)}         .b-drive::before{background:var(--amber)}
-  .b-avis{background:#e6f5ec;color:var(--green)}          .b-avis::before{background:var(--green)}
+  .b-drive{background:#e6f5ec;color:var(--green)}         .b-drive::before{background:var(--green)}
   .b-edit{background:#ece9fb;color:var(--violet)}         .b-edit::before{background:var(--violet)}
 
   a.link{display:inline-flex;align-items:center;gap:5px;color:var(--teal-d);text-decoration:none;font-weight:600;font-size:13px}
@@ -104,8 +102,8 @@
       </div>
       <div>
         <div class="brand">Entrenova · Produção</div>
-        <h1>Controle de Depoimentos</h1>
-        <div class="sub">Fispal Tecnologia 2026 · Cliente Siemens — gravações, disponibilidade no Drive e aviso aos participantes</div>
+        <h1>Controle de Registro Audiovisual</h1>
+        <div class="sub">Fispal Tecnologia 2026 · Cliente Siemens — gravações e disponibilidade no Drive</div>
       </div>
     </div>
     <div class="meta">
@@ -119,8 +117,7 @@
     <div class="card total"><div class="n" id="c-total">0</div><div class="l">Pessoas gravadas</div></div>
     <div class="card grav"><div class="n" id="c-grav">0</div><div class="l">A subir no Drive</div></div>
     <div class="card edit"><div class="n" id="c-edit">0</div><div class="l">A editar</div></div>
-    <div class="card drive"><div class="n" id="c-drive">0</div><div class="l">No Drive (avisar)</div></div>
-    <div class="card avis"><div class="n" id="c-avis">0</div><div class="l">Avisados ✓</div></div>
+    <div class="card drive"><div class="n" id="c-drive">0</div><div class="l">No Drive ✓</div></div>
   </div>
 
   <div class="toolbar">
@@ -129,8 +126,7 @@
       <option value="">Todos os status</option>
       <option value="gravado">A subir no Drive</option>
       <option value="editar">A editar</option>
-      <option value="drive">No Drive (avisar)</option>
-      <option value="avisado">Avisados</option>
+      <option value="drive">No Drive ✓</option>
     </select>
   </div>
 
@@ -138,8 +134,7 @@
 
   <div class="legend">
     <span><span class="badge b-grav">Gravado</span> &nbsp;gravamos, ainda <b>não subiu</b> no Drive</span>
-    <span><span class="badge b-drive">No Drive</span> &nbsp;disponível no Drive, <b>falta avisar</b> a pessoa</span>
-    <span><span class="badge b-avis">Avisado</span> &nbsp;pessoa <b>já foi avisada</b> ✓</span>
+    <span><span class="badge b-drive">No Drive</span> &nbsp;material <b>disponível no Drive</b> ✓</span>
     <span><span class="badge b-edit">A editar</span> &nbsp;material gravado que <b>precisa de edição</b></span>
   </div>
 
@@ -153,7 +148,7 @@
    DADOS — é só esta lista que muda. Cada pessoa é um objeto.
    dia:    1 | 2 | 3 | 4
    tipo:   "Depoimento" | "Vídeo" | "Insert" | "Foto"
-   status: "gravado" | "editar" | "drive" | "avisado"
+   status: "gravado" | "editar" | "drive"
    drive:  link da pasta/vídeo no Google Drive (ou "" se ainda não tiver)
    obs:    observação curta (opcional)
    ========================================================================= */
@@ -171,7 +166,6 @@ const PESSOAS = [
   // ---- DIA 02 (17/06) — dados reais do Drive ----
   { nome:"Bianca",          role:"", dia:2, tipo:"Depoimento", status:"drive",   drive:"https://drive.google.com/drive/folders/1kzFhEANUbgR4mq1U7aoTAaO5goroD_Nd", obs:"Depoimento + insert" },
   { nome:"William Pereira", role:"", dia:2, tipo:"Depoimento", status:"gravado", drive:"https://drive.google.com/drive/folders/14XwRiXvRPsjNsg4l5SeWTAFS5a12X2Tl", obs:"Subindo — multicam: CAM A, CAM B, INSERT" },
-  { nome:"Inserts do dia",  role:"", dia:2, tipo:"Insert",     status:"gravado", drive:"https://drive.google.com/drive/folders/1bKNtFJeTKhOJhQJFH1Z55WW6qpUq7Yh3", obs:"Em organização" },
 ];
 
 const DIAS = [
@@ -185,7 +179,6 @@ const STATUS = {
   gravado:{cls:"b-grav", txt:"Gravado"},
   editar: {cls:"b-edit", txt:"A editar"},
   drive:  {cls:"b-drive",txt:"No Drive"},
-  avisado:{cls:"b-avis", txt:"Avisado"},
 };
 
 function render(){
@@ -200,7 +193,6 @@ function render(){
   document.getElementById("c-grav").textContent  = PESSOAS.filter(p=>p.status==="gravado").length;
   document.getElementById("c-edit").textContent  = PESSOAS.filter(p=>p.status==="editar").length;
   document.getElementById("c-drive").textContent = PESSOAS.filter(p=>p.status==="drive").length;
-  document.getElementById("c-avis").textContent  = PESSOAS.filter(p=>p.status==="avisado").length;
 
   const root = document.getElementById("days");
   root.innerHTML = "";

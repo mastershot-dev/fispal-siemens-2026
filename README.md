@@ -1,4 +1,4 @@
-# Controle de Depoimentos — Fispal Tecnologia 2026 (Cliente: Siemens)
+# Controle de Registro Audiovisual — Fispal Tecnologia 2026 (Cliente: Siemens)
 
 Relatório de entrega e instruções de publicação. Produzido por: Entrenova · Produção.
 Última atualização: 17/06/2026.
@@ -9,7 +9,7 @@ Relatório de entrega e instruções de publicação. Produzido por: Entrenova �
 
 Painel em HTML (arquivo único, sem dependências) para acompanhar as gravações do evento
 **Fispal Tecnologia 2026** feitas para o cliente **Siemens**. Ele mostra, por dia de evento,
-quem foi gravado, o status de cada depoimento (gravado → disponível no Drive → participante avisado)
+quem foi gravado, o status de cada material (a subir → a editar → disponível no Drive)
 e os links diretos para as pastas no Google Drive.
 
 O objetivo é publicar este painel como uma página web (link permanente) para acompanhamento.
@@ -68,13 +68,13 @@ Campos:
 
 - `dia`: 1 a 4
 - `tipo`: `"Depoimento"` ou `"Insert"`
-- `status`: `"gravado"` (gravado, ainda não subiu) · `"drive"` (no Drive, falta avisar) · `"avisado"` (participante avisado)
+- `status`: `"gravado"` (a subir, ainda não subiu) · `"editar"` (gravado, precisa de edição) · `"drive"` (disponível no Drive — concluído ✓)
 - `drive`: link da pasta/arquivo no Google Drive (ou `""` se ainda não houver)
 - `obs`: observação curta (opcional)
 
 **`DIAS`** — rótulo e link da pasta de cada dia no Drive.
 
-Os cartões de resumo no topo (total de pessoas, a subir, no Drive, avisados) e os filtros de
+Os cartões de resumo no topo (pessoas gravadas, a subir, a editar, no Drive) e os filtros de
 busca/status são calculados automaticamente a partir da lista `PESSOAS`.
 
 ---
