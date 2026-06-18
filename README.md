@@ -143,6 +143,8 @@ nova pessoa ou mudança de status:
 - Depoimento — Bianca Cerveira (completo): https://drive.google.com/drive/folders/1kzFhEANUbgR4mq1U7aoTAaO5goroD_Nd
 - Depoimento — William Pereira (completo): https://drive.google.com/drive/folders/14XwRiXvRPsjNsg4l5SeWTAFS5a12X2Tl
 - Depoimento — Julio Cunha (completo): https://drive.google.com/drive/folders/1Lug4cv4uRfJql83ehT0ojMMMqdnP1CXm
+- Vídeo — Sistema VIC / Daniel Cassimiro e Augusto: https://drive.google.com/drive/folders/14diQgAmPPjMsNLYoxUbjIaQVEGhXJjYD
+- Fotos do dia (6 fotos): https://drive.google.com/drive/folders/1oG4nx3E0TCV3SHCrKjYAH-y9N7wm0B7P
 
 ---
 
@@ -153,5 +155,4 @@ O DIA 01 foi concluído. Itens de produção em aberto, registrados no painel:
 - **Repórter por um dia (Vídeo 01)** — *a editar*. Notas de edição:
   - Entrada do evento: usar a tomada em que aparece escrito **"EXPOSITORES"** no topo (essa é a que vale).
   - Foram gravados **dois finais**; escolher junto com o editor qual ficou melhor.
-- **Sistema VIC** (Cassimiro e Augusto) — *a subir no Drive*. Vídeo do sistema de verificação
-  de qualidade (ex.: banana); material gravado, ainda não enviado.
+- **Sistema VIC** (Cassimiro e Augusto) — ~~a subir~~ ✓ **No Drive** (pasta "DANIEL CASSIMIRO E AUGUSTO", DIA 02 / DEPOIMENTOS). CAM + INSERTS.
