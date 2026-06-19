@@ -148,11 +148,19 @@ nova pessoa ou mudança de status:
 
 ---
 
-## 8. Pendências do DIA 01 (encerrado)
+## 8. Vídeos Editados — Entregas finais
 
-O DIA 01 foi concluído. Itens de produção em aberto, registrados no painel:
+Categoria separada no painel (seção "Vídeos Editados — Entregas finais"), para os vídeos
+editados que são entregues ao cliente. Ficam na pasta **export** na raiz da Siemens.
 
-- **Repórter por um dia (Vídeo 01)** — *a editar*. Notas de edição:
-  - Entrada do evento: usar a tomada em que aparece escrito **"EXPOSITORES"** no topo (essa é a que vale).
-  - Foram gravados **dois finais**; escolher junto com o editor qual ficou melhor.
-- **Sistema VIC** (Cassimiro e Augusto) — ~~a subir~~ ✓ **No Drive** (pasta "DANIEL CASSIMIRO E AUGUSTO", DIA 02 / DEPOIMENTOS). CAM + INSERTS.
+- **Vídeo 01 — Repórter por um dia** — ✓ **Entregue** quinta (18/06). Corte final `v4`
+  (`FISPAL_2026_VIDEO_01_v4.mp4`). Origem: gravação do DIA 01.
+  - Link: https://drive.google.com/file/d/16nS15J6yFM-FzHhFwY4EAmtYavCL1RXJ/view
+- **Vídeo 02** — *a editar*. Entrega prevista para sexta (19/06).
+
+> Status `entregue` (badge teal "Entregue ✓") é exclusivo desta categoria de entregas.
+
+### Pendências de produção (encerradas)
+
+- **Sistema VIC** (Cassimiro e Augusto) — ✓ **No Drive** (pasta "DANIEL CASSIMIRO E AUGUSTO",
+  DIA 02 / DEPOIMENTOS). CAM + INSERTS.
