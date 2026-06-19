@@ -70,6 +70,7 @@
   .b-grav{background:#fcebea;color:var(--red)}            .b-grav::before{background:var(--red)}
   .b-drive{background:#e6f5ec;color:var(--green)}         .b-drive::before{background:var(--green)}
   .b-edit{background:#ece9fb;color:var(--violet)}         .b-edit::before{background:var(--violet)}
+  .b-entregue{background:#def1f0;color:var(--teal-d)}    .b-entregue::before{background:var(--teal)}
 
   a.link{display:inline-flex;align-items:center;gap:5px;color:var(--teal-d);text-decoration:none;font-weight:600;font-size:13px}
   a.link:hover{text-decoration:underline}
@@ -77,6 +78,11 @@
   .obs{color:var(--ink2);font-size:13px}
 
   .empty{padding:18px;color:var(--muted);font-size:13.5px;background:var(--card);border:1px dashed var(--line);border-radius:13px}
+
+  .day.entregas{padding:16px 18px;border:1px solid #bfe3e1;border-radius:13px;background:linear-gradient(180deg,#f3fbfa,#ffffff)}
+  .day.entregas h2{color:var(--teal-d);margin-bottom:12px}
+  .day.entregas h2 .dot{background:var(--teal)}
+  .day.entregas table{border-color:#cdeae8}
 
   .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:26px;padding:16px 18px;background:var(--card);
     border:1px solid var(--line);border-radius:13px;font-size:13px;color:var(--ink2)}
@@ -130,12 +136,15 @@
     </select>
   </div>
 
+  <div id="entregas"></div>
+
   <div id="days"></div>
 
   <div class="legend">
     <span><span class="badge b-grav">Gravado</span> &nbsp;gravamos, ainda <b>não subiu</b> no Drive</span>
     <span><span class="badge b-drive">No Drive</span> &nbsp;material <b>disponível no Drive</b> ✓</span>
     <span><span class="badge b-edit">A editar</span> &nbsp;material gravado que <b>precisa de edição</b></span>
+    <span><span class="badge b-entregue">Entregue ✓</span> &nbsp;vídeo <b>editado e entregue</b> ao cliente</span>
   </div>
 
   <footer>
@@ -158,7 +167,6 @@ const PESSOAS = [
   { nome:"Diego Cadete",     role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1nur3qp0ULQ3-twydzXCZK4AzMsq1a0Hu", obs:"2 vídeos (bruto + edit)" },
   { nome:"Daniel Marques",   role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1LWZWGQKcPsp659qEvhSO2hvJUL3Cdqzp", obs:"1 vídeo" },
   { nome:"Renan Felipe do Valle", role:"", dia:1, tipo:"Depoimento", status:"drive", drive:"https://drive.google.com/drive/folders/1VCrA7BI5kr_N-yyo5bOqkmCM1KjhcZfg", obs:"1 vídeo" },
-  { nome:"Repórter por um dia", role:"Vídeo 01", dia:1, tipo:"Vídeo", status:"editar", drive:"", obs:'Entrada: usar a tomada com "EXPOSITORES" no topo · 2 finais gravados, escolher c/ editor' },
   { nome:"Sistema VIC", role:"Cassimiro e Augusto", dia:1, tipo:"Vídeo", status:"drive", drive:"https://drive.google.com/drive/folders/14diQgAmPPjMsNLYoxUbjIaQVEGhXJjYD", obs:"Sistema de verificação de qualidade (ex.: banana) · CAM + INSERTS" },
   { nome:"Inserts do dia (23 vídeos)", role:"", dia:1, tipo:"Insert", status:"drive", drive:"https://drive.google.com/drive/folders/1ujweaII9zHC0X_7BBIPxLGNjmrmVrG-u", obs:"Material bruto" },
   { nome:"Fotos do dia (2 fotos)", role:"", dia:1, tipo:"Foto", status:"drive", drive:"https://drive.google.com/drive/folders/18OiTFG1WRp-m38AC59tKDaC2J4AIyNLn", obs:"Daniel Cassimiro" },
@@ -190,10 +198,17 @@ const DIAS = [
   { n:4, label:"Dia 4 — Sexta, 19/06", drive:"" },
 ];
 
+/* ENTREGAS — vídeos editados finais (categoria separada). Cada item é uma entrega. */
+const ENTREGAS = [
+  { nome:"Vídeo 01 — Repórter por um dia", status:"entregue", drive:"https://drive.google.com/file/d/16nS15J6yFM-FzHhFwY4EAmtYavCL1RXJ/view", obs:"Entregue quinta (18/06) · corte final v4 · origem: gravação do DIA 01" },
+  { nome:"Vídeo 02", status:"editar", drive:"", obs:"Entrega prevista para sexta (19/06)" },
+];
+
 const STATUS = {
-  gravado:{cls:"b-grav", txt:"Gravado"},
-  editar: {cls:"b-edit", txt:"A editar"},
-  drive:  {cls:"b-drive",txt:"No Drive"},
+  gravado: {cls:"b-grav",    txt:"Gravado"},
+  editar:  {cls:"b-edit",    txt:"A editar"},
+  drive:   {cls:"b-drive",   txt:"No Drive"},
+  entregue:{cls:"b-entregue",txt:"Entregue ✓"},
 };
 
 function render(){
@@ -244,10 +259,34 @@ function render(){
   });
 }
 
+function renderEntregas(){
+  const wrap = document.getElementById("entregas");
+  const done = ENTREGAS.filter(e=>e.status==="entregue").length;
+  const rows = ENTREGAS.map(e=>{
+    const s = STATUS[e.status]||{cls:"",txt:e.status};
+    const link = e.drive
+      ? `<a class="link" href="${e.drive}" target="_blank">Abrir ↗</a>`
+      : `<span class="nolink">—</span>`;
+    return `<tr>
+      <td class="name">${e.nome}</td>
+      <td><span class="badge ${s.cls}">${s.txt}</span></td>
+      <td>${link}</td>
+      <td class="obs hide">${e.obs||""}</td>
+    </tr>`;
+  }).join("");
+  wrap.innerHTML = `<div class="day entregas">
+    <h2><span class="dot"></span>Vídeos Editados — Entregas finais
+      <span class="count">(${done} de ${ENTREGAS.length} entregues)</span></h2>
+    <table>
+      <thead><tr><th>Vídeo</th><th>Status</th><th>Link</th><th class="hide">Obs.</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
+}
+
 document.getElementById("updated").textContent =
   "Atualizado em " + new Date().toLocaleDateString("pt-BR",{day:"2-digit",month:"long",year:"numeric"});
 document.getElementById("search").addEventListener("input", render);
 document.getElementById("filter").addEventListener("change", render);
+renderEntregas();
 render();
 </script>
 </body>
