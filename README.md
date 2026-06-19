@@ -156,7 +156,8 @@ editados que são entregues ao cliente. Ficam na pasta **export** na raiz da Sie
 - **Vídeo 01 — Repórter por um dia** — ✓ **Entregue** quinta (18/06). Corte final `v4`
   (`FISPAL_2026_VIDEO_01_v4.mp4`). Origem: gravação do DIA 01.
   - Link: https://drive.google.com/file/d/16nS15J6yFM-FzHhFwY4EAmtYavCL1RXJ/view
-- **Vídeo 02** — *a editar*. Entrega prevista para sexta (19/06).
+- **Vídeo 02** — ✓ **Entregue** sexta (19/06). `FISPAL_2026_VIDEO_02.mp4`.
+  - Link: https://drive.google.com/file/d/1EaJ1KG95OvL7N-ha2Ky0VZ79OryWnyNH/view
 
 > Status `entregue` (badge teal "Entregue ✓") é exclusivo desta categoria de entregas.
 
