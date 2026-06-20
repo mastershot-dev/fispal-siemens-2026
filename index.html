@@ -30,6 +30,12 @@
   .logochip .logo{height:30px;width:auto;display:block}
   .logochip .logo-fallback{display:none;font-weight:800;letter-spacing:1px;color:#009999;font-size:22px;
     font-family:Arial,Helvetica,sans-serif}
+  .brandrow{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+  .brandrow .by{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;opacity:.8}
+  .happy-logo{display:inline-flex;align-items:center;background:#ED1C24;color:#fff;
+    font-family:"Arial Rounded MT Bold","Helvetica Neue",Arial,sans-serif;font-weight:800;
+    font-size:19px;letter-spacing:-.6px;line-height:1;padding:5px 13px 6px;border-radius:7px;
+    box-shadow:0 2px 8px rgba(0,0,0,.18)}
   .drivebtn-top{display:inline-block;margin-top:10px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);
     color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:8px}
   .drivebtn-top:hover{background:rgba(255,255,255,.27)}
@@ -107,7 +113,7 @@
         <span class="logo-fallback">SIEMENS</span>
       </div>
       <div>
-        <div class="brand">Entrenova · Produção</div>
+        <div class="brandrow"><span class="happy-logo">happy</span></div>
         <h1>Controle de Registro Audiovisual</h1>
         <div class="sub">Fispal Tecnologia 2026 · Cliente Siemens — gravações e disponibilidade no Drive</div>
       </div>
@@ -202,7 +208,7 @@ const DIAS = [
 /* ENTREGAS — vídeos editados finais (categoria separada). Cada item é uma entrega. */
 const ENTREGAS = [
   { nome:"Vídeo 01 — Repórter por um dia", status:"entregue", drive:"https://drive.google.com/file/d/16nS15J6yFM-FzHhFwY4EAmtYavCL1RXJ/view", obs:"Entregue quinta (18/06) · corte final v4 · origem: gravação do DIA 01" },
-  { nome:"Vídeo 02", status:"entregue", drive:"https://drive.google.com/file/d/1EaJ1KG95OvL7N-ha2Ky0VZ79OryWnyNH/view", obs:"Entregue sexta (19/06) · FISPAL_2026_VIDEO_02.mp4" },
+  { nome:"Vídeo 02", status:"entregue", drive:"https://drive.google.com/file/d/1eR3CWm9mPDu-N-G_WEZ82ETZP4MjwTDK/view", obs:"Entregue sexta (19/06) · versão v3 (FISPAL_2026_VIDEO_02_v3.mp4)" },
 ];
 
 const STATUS = {

@@ -1,7 +1,7 @@
 # Controle de Registro Audiovisual — Fispal Tecnologia 2026 (Cliente: Siemens)
 
-Relatório de entrega e instruções de publicação. Produzido por: Entrenova · Produção.
-Última atualização: 17/06/2026.
+Relatório de entrega e instruções de publicação. Agência: Happy.
+Última atualização: 20/06/2026.
 
 ---
 
@@ -103,7 +103,7 @@ Para torná-lo permanente, criar uma conta gratuita e "reivindicar" o site.
 O painel é um **retrato do momento** (snapshot): não se atualiza sozinho. A cada novo dia,
 nova pessoa ou mudança de status:
 
-1. A Entrenova atualiza as listas `PESSOAS` / `DIAS` no `index.html`.
+1. A produção atualiza as listas `PESSOAS` / `DIAS` no `index.html`.
 2. Sobe a nova versão do arquivo:
    - **GitHub:** substituir o `index.html` no repositório (novo commit) — o Pages republica sozinho.
    - **Netlify:** arrastar o arquivo novo novamente.
